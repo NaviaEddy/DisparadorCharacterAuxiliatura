@@ -13,6 +13,25 @@ class ACharacterFireGameMode : public AGameModeBase
 
 public:
 	ACharacterFireGameMode();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+protected:
+	TArray<TSubclassOf<class APared>> Paredes;
+
+	FTimerHandle Timer;
+
+	void GenerarParedesAleatorias();
+
+	int32 IndiceAleatorio;
+
+	TSubclassOf<class APared> ParedesAleatorias;
 };
 
 
